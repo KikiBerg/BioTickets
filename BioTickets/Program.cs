@@ -1,4 +1,6 @@
-﻿namespace BioTickets
+﻿using System;
+
+namespace BioTickets
 {
     internal class Program
     {
@@ -28,9 +30,11 @@
                         break;
                     case "1":
                         // Kod för "Ungdom eller pensionär"
+                        JuniorOrSenior();
                         break;
                     case "2":
                         // Kod för "Beräkna pris för ett sällskap"
+                        GroupFee();
                         break;
                     case "3":
                         // Kod för "Upprepa tio gånger"
@@ -52,7 +56,7 @@
 
             if (int.TryParse(ageInput, out int age)) 
             { 
-                if (age < 5 || age < 100) 
+                if (age < 5 || age > 100) 
                 {
                     Console.WriteLine("Du får gratis inträde!");
                 }
@@ -72,8 +76,64 @@
             else 
             {
                 Console.WriteLine("Felaktig ålder, försök igen.");
+            }            
+
+        }
+
+
+        static void GroupFee() 
+        {
+            Console.WriteLine("Hur många personer är ni i sällskapet? ");
+            string personCountInput = Console.ReadLine();
+
+            if (int.TryParse(personCountInput, out int personCount)) // Läsa och konvertera input för antal personer till en integer
+            {
+                int totalPrice = 0; // Variabel för att börja beräkningen av summan från 0
+                for (int i = 1; i <= personCount; i++)
+                {
+                    Console.WriteLine($"Ange ålder för person {i}: ");
+                    string ageInput = Console.ReadLine(); // Input av åldern läsas som en sträng
+                    if (int.TryParse(ageInput, out int age)) // Åldern konverteras till en int, om möjligt
+                    {
+                        int ticketPrice; // Variabel för att spara biljettpriset
+
+                        if (age < 5 || age > 100)
+                        {
+                            ticketPrice = 0;
+                        }
+
+                        else if (age < 20)
+                        {
+                            ticketPrice = 80;
+                        }
+
+                        else if (age > 64)
+                        {
+                            ticketPrice = 90;
+                        }
+
+                        else
+                        {
+                            ticketPrice = 120;
+                        }
+
+                        totalPrice += ticketPrice; // Lägger till biljettpriset till totalkostnaden
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Felaktig input av ålder, försök igen.");
+                        i--;
+                    }                                            
+                }
+
+                Console.WriteLine($"Antal personer i sällskapet: {personCount} st");
+                Console.WriteLine($"Totalkostnad för hela sällskapet: {totalPrice} kr");
             }
-            
+            else 
+            {
+                Console.WriteLine("Felaktig input av antal personer, försök igen.");
+            }
+
         }
 
 
