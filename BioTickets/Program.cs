@@ -49,6 +49,7 @@ namespace BioTickets
             }
         }
 
+        // Klass för "Ungdom eller pensionär"
         static void JuniorOrSenior() 
         {
             Console.WriteLine("Ange din ålder: ");
@@ -80,7 +81,7 @@ namespace BioTickets
 
         }
 
-
+        // Klass för "Beräkna pris för ett sällskap"
         static void GroupFee() 
         {
             Console.WriteLine("Hur många personer är ni i sällskapet? ");
@@ -134,7 +135,18 @@ namespace BioTickets
                 Console.WriteLine("Felaktig input av antal personer, försök igen.");
             }
 
+            //Variabler i klass GroupFee():
+            /*
+             * personCountInput: sträng som lagrar antalet personer som användaren anger
+             * personCount: heltalsvariabel som lagrar det konverterade värdet från personCountInput efter validering med int.TryParse
+             * totalPrice: heltalsvariabel som summerar totalkostnaden för hela sällskapet
+             * ageInput: sträng som lagrar åldern för varje person i sällskapet
+             * age: heltalsvariabel som lagrar den konverterade åldern från ageInput efter validering med int.TryParse
+             * ticketPrice: heltalsvariabel som lagrar biljettpriset baserat på personens ålder
+             */
         }
+
+
 
 
 
