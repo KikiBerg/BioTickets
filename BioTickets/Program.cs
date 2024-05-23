@@ -38,6 +38,7 @@ namespace BioTickets
                         break;
                     case "3":
                         // Kod för "Upprepa tio gånger"
+                        RepeatTenTimes();
                         break;
                     case "4":
                         // Kod för "Det tredje ordet"
@@ -146,8 +147,18 @@ namespace BioTickets
              */
         }
 
+        // Klass för "Upprepa tio gånger"
+        static void RepeatTenTimes() 
+        {
+            Console.WriteLine("Ange en text: ");
+            string input = Console.ReadLine();
 
-
+            for (int i = 0; i<10; i++) 
+            { 
+                Console.Write(input);
+            }
+            Console.WriteLine();
+        }
 
 
 
