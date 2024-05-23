@@ -42,6 +42,7 @@ namespace BioTickets
                         break;
                     case "4":
                         // Kod för "Det tredje ordet"
+                        ThirdWordExtractor();
                         break;
                     default:
                         Console.WriteLine("Din input var felaktig, försök igen och ange enbart en siffra mellan 0-4.");
@@ -160,6 +161,23 @@ namespace BioTickets
             Console.WriteLine();
         }
 
+        // Klass för "Det tredje ordet"
+        static void ThirdWordExtractor()
+        {
+            Console.WriteLine("Ange en mening: ");
+            string userSentence = Console.ReadLine();
+
+            string[] words = userSentence.Split(' '); // Meningen delas upp i ord baserat på mellanslag och resultatet sparas i en array av strängar
+
+            if (words.Length >= 3) // Kontrollera att arrayen words innehåller minst tre element
+            {
+                Console.WriteLine($"Det tredje ordet är: {words[2]}");
+            }
+            else
+            {
+                Console.WriteLine("Meningen skall innehålla minst tre ord.");
+            }
+        }
 
 
 
