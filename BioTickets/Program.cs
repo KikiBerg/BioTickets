@@ -166,16 +166,22 @@ namespace BioTickets
                 Console.WriteLine("Felaktig input, försök igen.");
             }
 
-           
 
             //Variabler i klass GroupFee():
             /*
-             * personCountInput: sträng som lagrar antalet personer som användaren anger
-             * personCount: heltalsvariabel som lagrar det konverterade värdet från personCountInput efter validering med int.TryParse
-             * totalPrice: heltalsvariabel som summerar totalkostnaden för hela sällskapet
-             * ageInput: sträng som lagrar åldern för varje person i sällskapet
-             * age: heltalsvariabel som lagrar den konverterade åldern från ageInput efter validering med int.TryParse
-             * ticketPrice: heltalsvariabel som lagrar biljettpriset baserat på personens ålder
+             * personCountInput: lagrar antalet personer som användaren anger (string)
+             * personCount: Lagrar det konverterade värdet från personCountInput efter validering med int.TryParse (int)
+             * totalPrice: Summerar totalkostnaden för hela sällskapet (int)
+             * ages: Lagrar åldrarna på personerna i sällskapet (List<int>)
+             * ageInput: Lagrar åldern för varje person i sällskapet (string)
+             * age: Lagrar den konverterade åldern från ageInput efter validering med int.TryParse (int)
+             * ticketPrice: Lagrar biljettpriset för en specifik person baserat på personens ålder (int)
+             * youngestAge: Lagrar den yngsta åldern i sällskapet (int)
+             * oldestAge: Lagrar den äldsta åldern i sällskapet (int)
+             * averageAge: Lagrar genomsnittsåldern för sällskapet (double)
+             * numChildren: Lagrar antalet barn (under 20 år) i sällskapet (int)
+             * numAdults: Lagrar antalet vuxna (20-64 år) i sällskapet (int)
+             * numPensioners: Lagrar antalet pensionärer (över 64 år) i sällskapet (int)
              */
         }
 
