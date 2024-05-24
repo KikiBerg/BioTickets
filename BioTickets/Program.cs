@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace BioTickets
 {
@@ -51,7 +52,7 @@ namespace BioTickets
             }
         }
 
-        // Klass för "Ungdom eller pensionär"
+        // Klass för "Ungdom eller pensionär" case 1
         static void JuniorOrSenior() 
         {
             Console.WriteLine("Ange din ålder: ");
@@ -83,7 +84,11 @@ namespace BioTickets
 
         }
 
-        // Klass för "Beräkna pris för ett sällskap"
+        // Klass för "Beräkna pris för ett sällskap" case 2
+        /* Utveckla klassen genom att beräkna statistik för
+         * genomsnittsålder, yngsta och äldsta personen samt
+         * antal barn, vuxna och pensionärer         
+         */
         static void GroupFee() 
         {
             Console.WriteLine("Hur många personer är ni i sällskapet? ");
@@ -92,12 +97,18 @@ namespace BioTickets
             if (int.TryParse(personCountInput, out int personCount)) // Läsa och konvertera input för antal personer till en integer
             {
                 int totalPrice = 0; // Variabel för att börja beräkningen av summan från 0
+                List<int> ages = new List<int>(); // Lista för att lagra åldrarna
+
+
                 for (int i = 1; i <= personCount; i++)
                 {
                     Console.WriteLine($"Ange ålder för person {i}: ");
                     string ageInput = Console.ReadLine(); // Input av åldern läsas som en sträng
+
                     if (int.TryParse(ageInput, out int age)) // Åldern konverteras till en int, om möjligt
                     {
+                        ages.Add(age); // Åldern läggs till i listan
+
                         int ticketPrice; // Variabel för att spara biljettpriset
 
                         if (age < 5 || age > 100)
@@ -126,7 +137,13 @@ namespace BioTickets
                     {
                         Console.WriteLine("Felaktig input av ålder, försök igen.");
                         i--;
-                    }                                            
+                    }
+
+                    // Statistik beräkningar här:
+                    int youngestAge = ages.Min();
+                    int oldestAge = ages.Max();
+                    double averageAge = ages.Average(); 
+
                 }
 
                 Console.WriteLine($"Antal personer i sällskapet: {personCount} st");
@@ -136,6 +153,8 @@ namespace BioTickets
             {
                 Console.WriteLine("Felaktig input av antal personer, försök igen.");
             }
+
+           
 
             //Variabler i klass GroupFee():
             /*
@@ -148,7 +167,7 @@ namespace BioTickets
              */
         }
 
-        // Klass för "Upprepa tio gånger"
+        // Klass för "Upprepa tio gånger" case 3
         static void RepeatTenTimes() 
         {
             Console.WriteLine("Ange en text: ");
@@ -161,7 +180,7 @@ namespace BioTickets
             Console.WriteLine();
         }
 
-        // Klass för "Det tredje ordet"
+        // Klass för "Det tredje ordet" case 4
         static void ThirdWordExtractor()
         {
             Console.WriteLine("Ange en mening: ");
