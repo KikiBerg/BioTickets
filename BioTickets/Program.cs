@@ -16,7 +16,7 @@ namespace BioTickets
                 Console.WriteLine("Välj ett av följande alternativ");
                 Console.WriteLine("0. Avsluta programmet");
                 Console.WriteLine("1. Ungdom eller pensionär");
-                Console.WriteLine("2. Beräkna pris för ett sällskap");
+                Console.WriteLine("2. Beräkna pris för ett sällskap samt få statistik för sällskapet");
                 Console.WriteLine("3. Upprepa tio gånger");
                 Console.WriteLine("4. Det tredje ordet");
 
@@ -138,26 +138,32 @@ namespace BioTickets
                         Console.WriteLine("Felaktig input av ålder, försök igen.");
                         i--;
                     }
-
-                    // Statistik beräkningar här:
-                    int youngestAge = ages.Min();
-                    int oldestAge = ages.Max();
-                    double averageAge = ages.Average();
-
-                    // Räkna antalet barn, vuxna och pensionärer
-                    int numChildren = ages.Count(age => age < 20);
-                    int numAdults = ages.Count(age => age >= 20 && age <=64);
-                    int numPensioners = ages.Count(age => age > 64);
-
+                    
                 }
+
+                // Statistika beräkningar här:
+                int youngestAge = ages.Min();
+                int oldestAge = ages.Max();
+                double averageAge = ages.Average();
+
+                // Räkna antalet barn, vuxna och pensionärer
+                int numChildren = ages.Count(age => age < 20);
+                int numAdults = ages.Count(age => age >= 20 && age <= 64);
+                int numPensioners = ages.Count(age => age > 64);
+
 
                 Console.WriteLine($"Antal personer i sällskapet: {personCount} st");
                 Console.WriteLine($"Totalkostnad för hela sällskapet: {totalPrice} kr");
-
+                Console.WriteLine($"Yngsta personen i det här sällskapet är: {youngestAge} år gammal");
+                Console.WriteLine($"Äldsta personen i det här sällskapet är: {oldestAge} år gammal");
+                Console.WriteLine($"Genomsnittsålder i det här sällskapet är: {averageAge}");
+                Console.WriteLine($"Antal barn som finns: {numChildren} st");
+                Console.WriteLine($"Antal vuxna som finns: {numAdults} st");
+                Console.WriteLine($"Antal pensionärer som finns: {numPensioners} st");
             }
             else 
             {
-                Console.WriteLine("Felaktig input av antal personer, försök igen.");
+                Console.WriteLine("Felaktig input, försök igen.");
             }
 
            
