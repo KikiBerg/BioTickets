@@ -142,12 +142,18 @@ namespace BioTickets
                     // Statistik beräkningar här:
                     int youngestAge = ages.Min();
                     int oldestAge = ages.Max();
-                    double averageAge = ages.Average(); 
+                    double averageAge = ages.Average();
+
+                    // Räkna antalet barn, vuxna och pensionärer
+                    int numChildren = ages.Count(age => age < 20);
+                    int numAdults = ages.Count(age => age >= 20 && age <=64);
+                    int numPensioners = ages.Count(age => age > 64);
 
                 }
 
                 Console.WriteLine($"Antal personer i sällskapet: {personCount} st");
                 Console.WriteLine($"Totalkostnad för hela sällskapet: {totalPrice} kr");
+
             }
             else 
             {
